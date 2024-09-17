@@ -1,0 +1,18 @@
+{
+	"config_description": "zero-shot CoT answering and 3-shot conjecturing on MATH.",
+	"method": "review",
+	"dataset": "lighteval/MATH",
+	"data_split": "all",
+	"catagory": "Algebra",
+	"model": "gpt-4o",
+	"n_samples_perreview": 1,
+	"n_reviews": 3,
+
+	"system_prompt": "You are an experienced math professor. You need to look into relative problems and create new problems based on these insights.",
+	"ans_prop": "Try to answer the question below step by step with careful calculation. You should write down your response in JSON format. It contains: `answer_steps` which is your answering steps; `final_answer` is your final answer to the question, which should be a single number; `review` is where you states the logic and insights underneath this problem.\n",
+	"conj_prop": "Now that as an experienced teacher, you need to think up with some new questions for various purpose. It should share similar underlying math principles with previous problems, being creative while being careful about the correctness as well. You need to synthesize the reviews showed to you and create your own novel problem. This time your should also respond in JSON format, where we have: `inspiration` which describes your original thoughts about the question you come up with; `question` is the new question you just created; `answer_steps` is your answering steps; `final_answer` is the final answer to this question.\n",
+
+	"reviewer_sys_prop": "You are an experienced math professor. You should act as a reviewer of the math question.",
+	"review_prop": "Here is a math question just made by another agent. you need to look into its thoughts and propose new ideas on how to optimize this question for better novelty, quality and difficulty. You need to respond in JSON format, which contains: `inspiration` which is your new inspiration added to the original question; `explanation` which is your detailed explanation to your inspiration; Your response is used to guide the other agent to promote its question. You can express your thoughts with math formulas in LaTeX if needed.\n",
+	"review_example_prop": "And here are other similar questions which might help you think up new inspiration\n"
+}
