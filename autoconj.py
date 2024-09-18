@@ -4,7 +4,7 @@ import random
 import argparse
 # import numpy as np
 # import torch
-from methods import run_naive
+from methods import run_naive, run_review
 
 # Settings of the project
 with open('./.openai-config.json') as config_file:
@@ -15,6 +15,8 @@ with open('./.openai-config.json') as config_file:
 def run(config):
     if config['method'] == 'naive':
         run_naive(config)
+    elif config['method'] == 'review':
+        run_review(config)
     else:
         raise NotImplementedError('unknown conjecture method.')
 
